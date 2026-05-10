@@ -1,0 +1,23 @@
+{
+  "name": "Brunch.ar Barcelona",
+  "short_name": "Brunch.ar",
+  "description": "Brunch argentino en el corazón del Eixample, Barcelona. Abierto todos los días de 9:00 a 16:00.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5EDE0",
+  "theme_color": "#8B3A2A",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}

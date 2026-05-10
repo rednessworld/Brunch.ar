@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Brunch argentino en el Eixample de Barcelona. Desayunos y brunchs con alma argentina, café de especialidad y ambiente pet friendly. Abierto mié–dom 9:00–16:00." />
+  <meta name="author" content="Brunch.ar Barcelona" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://brunchar.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Brunch.ar Barcelona" />
+  <meta property="og:title" content="Brunch.ar — Brunch Argentino en Barcelona" />
+  <meta property="og:description" content="Desayunos y brunchs con alma argentina en el Eixample de Barcelona. Pet friendly · Café de especialidad · Mié–Dom 9:00–16:00." />
+  <meta property="og:image" content="https://brunchar.vercel.app/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Plato de brunch argentino en Brunch.ar Barcelona" />
+  <meta property="og:url" content="https://brunchar.vercel.app/" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brunch.ar — Brunch Argentino en Barcelona" />
+  <meta name="twitter:description" content="Desayunos y brunchs con alma argentina en el Eixample de Barcelona. Pet friendly · Mié–Dom 9:00–16:00." />
+  <meta name="twitter:image" content="https://brunchar.vercel.app/images/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Plato de brunch argentino en Brunch.ar Barcelona" />
+
+  <!-- Mobile / PWA -->
+  <meta name="theme-color" content="#8B3A2A" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <title>Brunch.ar — Brunch Argentino en el Eixample, Barcelona</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" />
+
+  <!-- Hero preload — keep in sync with hero <picture> src below -->
+  <link rel="preload" as="image" href="images/hero1.png" fetchpriority="high" />
+
+  <!-- Stylesheets — order matters: Tailwind base first, custom tokens/components second -->
+  <link rel="stylesheet" href="css/tailwind.css" />
+  <!-- Tailwind: purged production build. Regenerate after HTML changes:
+       npx tailwindcss@3 -i ./src/css/tailwind-input.css -o ./src/css/tailwind.css --content "./src/**/*.html" --minify -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/print.css" media="print" />
+</head>
+
+<body class="font-body bg-cream antialiased overflow-x-hidden">
+
+  <!-- Skip nav -->
+  <a href="#main" class="skip-nav" data-i18n="nav.skip">Saltar al contenido</a>
+
+  <!-- ══════════════════════════════════════════════════════
+       LOADING SCREEN
+  ══════════════════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Cargando Brunch.ar" data-i18n-aria="hero.loading">
+    <img src="images/logo2.png" alt="Brunch.ar" class="loader__logo" />
+    <div class="loader__bar" aria-hidden="true"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════════════ -->
+  <header class="nav" role="banner">
+    <div class="container flex items-center justify-between h-full gap-4">
+
+      <!-- Logo -->
+      <a href="#" aria-label="Brunch.ar — inicio" data-i18n-aria="nav.logo" class="flex-shrink-0">
+        <img src="images/logo2.png" alt="Brunch.ar Barcelona" class="nav-logo" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal" data-i18n-aria="nav.primary">
+        <a href="#about"   class="font-body text-sm font-semibold text-brown-md hover:text-terra transition-colors" data-i18n="nav.about">Nosotros</a>
+        <a href="#menu"    class="font-body text-sm font-semibold text-brown-md hover:text-terra transition-colors" data-i18n="nav.menu">Menú</a>
+        <a href="#gallery" class="font-body text-sm font-semibold text-brown-md hover:text-terra transition-colors" data-i18n="nav.gallery">Galería</a>
+        <a href="#findus"  class="font-body text-sm font-semibold text-brown-md hover:text-terra transition-colors" data-i18n="nav.findus">Encuéntranos</a>
+      </nav>
+
+      <!-- Desktop right -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Language switcher -->
+        <div class="flex items-center gap-1" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.lang_group">
+          <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+          <button class="lang-btn" data-lang="ca" aria-pressed="false">CA</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <!-- Reserve CTA -->
+        <a href="#findus" class="btn btn--primary text-sm px-5 py-2.5" data-i18n="nav.reserve">Reservar</a>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button id="hamburger"
+              class="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="Abrir menú de navegación"
+              data-i18n-aria="nav.hamburger">
+        <span class="block w-6 h-0.5 bg-brown rounded-full transition-transform" aria-hidden="true"></span>
+        <span class="block w-6 h-0.5 bg-brown rounded-full" aria-hidden="true"></span>
+        <span class="block w-6 h-0.5 bg-brown rounded-full transition-transform" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="hidden" role="dialog" aria-modal="true" aria-label="Menú de navegación" data-i18n-aria="nav.mobile_menu">
+    <nav class="flex flex-col gap-2" aria-label="Navegación" data-i18n-aria="nav.mobile_nav">
+      <a href="#about"   class="font-heading text-2xl font-bold text-brown py-3 border-b border-cream-dk" data-i18n="nav.about">Nosotros</a>
+      <a href="#menu"    class="font-heading text-2xl font-bold text-brown py-3 border-b border-cream-dk" data-i18n="nav.menu">Menú</a>
+      <a href="#gallery" class="font-heading text-2xl font-bold text-brown py-3 border-b border-cream-dk" data-i18n="nav.gallery">Galería</a>
+      <a href="#findus"  class="font-heading text-2xl font-bold text-brown py-3 border-b border-cream-dk" data-i18n="nav.findus">Encuéntranos</a>
+    </nav>
+    <div class="mt-8 flex flex-col gap-4">
+      <a href="#findus" class="btn btn--primary w-full justify-center" data-i18n="nav.reserve">Reservar</a>
+      <div class="flex items-center gap-2" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.lang_group">
+        <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+        <button class="lang-btn" data-lang="ca" aria-pressed="false">CA</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════════════ -->
+  <main id="main">
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <!-- Visually hidden h1 for accessibility / SEO -->
+      <h1 id="hero-heading" class="sr-only">Brunch.ar — Brunch Argentino en el Eixample, Barcelona</h1>
+
+      <!-- Hero background -->
+      <picture>
+        <img src="images/hero1.png"
+             alt="Exterior de Brunch.ar en el Eixample de Barcelona"
+             class="hero__bg"
+             fetchpriority="high"
+             decoding="async" />
+      </picture>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <div class="hero__unit">
+          <img src="images/logo2.png" alt="Brunch.ar" class="hero__logo fade-up" />
+          <h2 class="hero__title font-heading text-white fade-up"
+              data-i18n="hero.title">
+            El sabor de Buenos Aires en el corazón del Eixample
+          </h2>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── ABOUT ──────────────────────────────────────────── -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          <!-- Image -->
+          <div class="fade-up order-2 md:order-1">
+            <div class="about__image-wrap rounded-2xl overflow-hidden aspect-[4/5] max-h-[600px]">
+              <picture>
+                <img src="images/food7.webp"
+                     alt="Interior cálido de Brunch.ar con luz natural y mesas de madera"
+                     class="w-full h-full object-cover"
+                     loading="lazy"
+                     decoding="async" />
+              </picture>
+            </div>
+          </div>
+
+          <!-- Text -->
+          <div class="order-1 md:order-2">
+            <span class="section-overline fade-up" data-i18n="about.overline">Nuestra Historia</span>
+            <h2 class="section-title mt-2 mb-6 fade-up delay-1" id="about-heading" data-i18n="about.title">
+              Alma argentina en el corazón de Barcelona
+            </h2>
+            <p class="text-muted leading-relaxed mb-4 fade-up delay-2" data-i18n="about.p1">
+              Brunch.ar nació del amor por los desayunos y brunches del Río de la Plata. Desde el Eixample de Barcelona, traemos el ritual del café con medialunas, los huevos revueltos perfectos y la tostada de palta que se merece tu mañana.
+            </p>
+            <p class="text-muted leading-relaxed fade-up delay-3" data-i18n="about.p2">
+              Un espacio cálido, luminoso y pet friendly donde el tiempo se detiene. Ingredientes frescos, recetas con alma y un equipo que pone el corazón en cada plato.
+            </p>
+
+            <!-- Feature tags -->
+            <div class="about-tags fade-up delay-4">
+              <span class="about-tag" data-i18n="about.tag_petfriendly">🐾 Pet Friendly</span>
+              <span class="about-tag" data-i18n="about.tag_coffee">☕ Café de especialidad</span>
+              <span class="about-tag" data-i18n="about.tag_vegan">🌱 Opciones veganas</span>
+              <span class="about-tag" data-i18n="about.tag_homemade">🏠 Hecho en casa</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MENU ───────────────────────────────────────────── -->
+    <section class="section bg-cream-dk" id="menu" aria-labelledby="menu-heading">
+      <div class="container">
+
+        <div class="text-center mb-14 fade-up">
+          <h2 class="menu-section-title" id="menu-heading" data-i18n="menu.overline">El Menú</h2>
+        </div>
+
+        <!-- Feature image -->
+        <div class="menu-feature-img rounded-2xl overflow-hidden mb-12 fade-up">
+          <img src="images/food15.png"
+               alt="Plato de brunch con huevos, aguacate y café"
+               class="w-full object-cover"
+               loading="lazy"
+               decoding="async" />
+        </div>
+
+        <!-- Menu cards grid -->
+        <div class="menu-cards-grid grid md:grid-cols-2 gap-6 mb-10">
+
+          <!-- BRUNCH — full width, 2-col items on desktop -->
+          <div class="menu-card fade-up md:col-span-2">
+            <h3 class="menu-card__title" data-i18n="menu.cat_brunch">Brunch</h3>
+            <ul role="list" class="md:grid md:grid-cols-2 md:gap-x-10">
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.eggs_benedict.name">Eggs Benedict</div>
+                  <p class="menu-item__desc" data-i18n="menu.eggs_benedict.desc">English muffin, poached eggs, hollandaise sauce, baby potatoes and salad. Choose: Crispy bacon, Spinach or Norwegian Salmon (+€3.5)</p>
+                </div>
+                <div class="menu-item__price">€13.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.english_breakfast.name">English Breakfast</div>
+                  <p class="menu-item__desc" data-i18n="menu.english_breakfast.desc">Scrambled eggs, beans, crispy bacon, butifarra, hash browns, candied cherry tomatoes, grilled champignons, toasted bread</p>
+                </div>
+                <div class="menu-item__price">€14.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.american_breakfast.name">American Breakfast</div>
+                  <p class="menu-item__desc" data-i18n="menu.american_breakfast.desc">Pancakes with maple syrup, scrambled eggs, crispy bacon, baby potatoes</p>
+                </div>
+                <div class="menu-item__price">€17</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.avocado_toast.name">Avocado Toast</div>
+                  <p class="menu-item__desc" data-i18n="menu.avocado_toast.desc">Mashed avocado on traditional country bread, crème fraîche, seeds, onion pickles. Add: poached egg +€1.5 · salmon +€3.5 · baby potatoes +€2.5</p>
+                </div>
+                <div class="menu-item__price">€10</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.scrambled_eggs.name">Scrambled Eggs</div>
+                  <p class="menu-item__desc" data-i18n="menu.scrambled_eggs.desc">On traditional toasted country bread and radish</p>
+                </div>
+                <div class="menu-item__price">€10</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.tortilla.name">Tortilla</div>
+                  <p class="menu-item__desc" data-i18n="menu.tortilla.desc">Spanish style potato &amp; onion omelet, tomato bread</p>
+                </div>
+                <div class="menu-item__price">€9</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.ham_sandwich.name">Ham Sandwich</div>
+                  <p class="menu-item__desc" data-i18n="menu.ham_sandwich.desc">Crispy bread, Iberic ham, Catalonian tomatoes, extra virgin olive oil</p>
+                </div>
+                <div class="menu-item__price">€6.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.pancakes.name">Pancakes</div>
+                  <p class="menu-item__desc" data-i18n="menu.pancakes.desc">3 stacked pancakes. Maple syrup &amp; butter / Seasonal fruits +€1 / Dulce de Leche +€1 / Mascarpone &amp; berries +€2</p>
+                </div>
+                <div class="menu-item__price">€9.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.acai_bowl.name">Açaí Bowl</div>
+                  <p class="menu-item__desc" data-i18n="menu.acai_bowl.desc">Sugar free, seasonal fruit, chia milk, candied nuts and coconut flakes</p>
+                </div>
+                <div class="menu-item__price">€14</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.healthy_bowl.name">Healthy Bowl</div>
+                  <p class="menu-item__desc" data-i18n="menu.healthy_bowl.desc">Yogurt granola, milk and seasonal fruits</p>
+                </div>
+                <div class="menu-item__price">€11</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.medialunas.name">Medialunas</div>
+                  <p class="menu-item__desc" data-i18n="menu.medialunas.desc">Argentine style croissant €2 · Pistachio €4 · Ham &amp; cheese €4 · Nutella €3.5 · Promo: Coffee + 2 medialunas €5.9</p>
+                </div>
+                <div class="menu-item__price">from €2</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- LUNCH -->
+          <div class="menu-card fade-up">
+            <h3 class="menu-card__title" data-i18n="menu.cat_lunch">Lunch</h3>
+            <ul role="list">
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.cheeseburger.name">Cheeseburger</div>
+                  <p class="menu-item__desc" data-i18n="menu.cheeseburger.desc">Two beef medallions, brioche, crispy bacon, pickles, homemade fries. Add: bacon +€1.5, fried egg +€1.5</p>
+                </div>
+                <div class="menu-item__price">€13.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.roastbeef_sandwich.name">Roastbeef Sandwich</div>
+                  <p class="menu-item__desc" data-i18n="menu.roastbeef_sandwich.desc">Oven-baked beef in mustard and herbs, pickles, lettuce, caper and anchovy sauce, homemade fries</p>
+                </div>
+                <div class="menu-item__price">€14.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.pulled_pork.name">Pulled Pork Sandwich</div>
+                  <p class="menu-item__desc" data-i18n="menu.pulled_pork.desc">Slow-cooked pork, melted cheddar, smoky barbecue sauce, cucumber pickles, caramelized onion, homemade fries</p>
+                </div>
+                <div class="menu-item__price">€14.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.milanesas.name">Milanesas</div>
+                  <p class="menu-item__desc" data-i18n="menu.milanesas.desc">Beef schnitzel with french fries and salad. Add tomato sauce &amp; cheese +€3 or 2 fried eggs +€3</p>
+                </div>
+                <div class="menu-item__price">€14</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.burrata_salad.name">Burrata Salad</div>
+                  <p class="menu-item__desc" data-i18n="menu.burrata_salad.desc">Arugula, mixed greens, cherry tomatoes, candied pears, pickles, burrata, house vinaigrette. Add salmon +€3.5, ham +€2.5</p>
+                </div>
+                <div class="menu-item__price">€12.5</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- TO SHARE -->
+          <div class="menu-card fade-up delay-1">
+            <h3 class="menu-card__title" data-i18n="menu.cat_share">To Share</h3>
+            <ul role="list">
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.fries.name">Brunch.ar Fries</div>
+                  <p class="menu-item__desc" data-i18n="menu.fries.desc">Homemade fries with red pepper and coriander mayo sauce</p>
+                </div>
+                <div class="menu-item__price">€7.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.provoleta.name">Provoleta</div>
+                  <p class="menu-item__desc" data-i18n="menu.provoleta.desc">Crispy provolone cheese with chimichurri, roasted bell peppers and balsamic vinegar</p>
+                </div>
+                <div class="menu-item__price">€9</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.hummus.name">Hummus</div>
+                  <p class="menu-item__desc" data-i18n="menu.hummus.desc">Homemade pickles and sourdough bread</p>
+                </div>
+                <div class="menu-item__price">€8</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SOFT DRINKS -->
+          <div class="menu-card fade-up">
+            <h3 class="menu-card__title" data-i18n="menu.cat_drinks">Soft Drinks</h3>
+            <ul role="list">
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.sodas.name">Sodas</div></div>
+                <div class="menu-item__price">€3.2</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.bottled_water.name">Bottled Water</div></div>
+                <div class="menu-item__price">€2.2</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.sparkling_water.name">Sparkling Water</div></div>
+                <div class="menu-item__price">€3.2</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.apple_juice.name">Apple Juice</div></div>
+                <div class="menu-item__price">€3.8</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.pineapple_juice.name">Pineapple Juice</div></div>
+                <div class="menu-item__price">€3.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.peach_juice.name">Peach Juice</div></div>
+                <div class="menu-item__price">€3.8</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- B.AR -->
+          <div class="menu-card fade-up delay-1">
+            <h3 class="menu-card__title" data-i18n="menu.cat_bar">B.ar</h3>
+            <ul role="list">
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.alhambra_clasica.name">Alhambra Clásica</div>
+                  <p class="menu-item__desc" data-i18n="menu.alhambra_clasica.desc">Small / Large</p>
+                </div>
+                <div class="menu-item__price">€3 / €5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.alhambra_roja.name">Alhambra Roja</div>
+                  <p class="menu-item__desc" data-i18n="menu.alhambra_roja.desc">Small / Large</p>
+                </div>
+                <div class="menu-item__price">€3.5 / €5.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.alhambra_ipa.name">Alhambra IPA</div></div>
+                <div class="menu-item__price">€4.2</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.corona.name">Corona</div></div>
+                <div class="menu-item__price">€4</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.wine.name">Red / White Wine</div>
+                  <p class="menu-item__desc" data-i18n="menu.wine.desc">Glass / Bottle</p>
+                </div>
+                <div class="menu-item__price">€4 / €18</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.vermouth.name">Vermouth</div></div>
+                <div class="menu-item__price">€3.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.spritz_group.name">Aperol Spritz · Mimosa · Mojito</div></div>
+                <div class="menu-item__price">€7</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.cocktail_group.name">Bloody Mary · Espresso Martini · Moscow Mule · Piña Colada · Cocktail Clásico</div></div>
+                <div class="menu-item__price">€10</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CAFETERIA — full width, 2-col items on desktop -->
+          <div class="menu-card fade-up md:col-span-2">
+            <h3 class="menu-card__title" data-i18n="menu.cat_cafeteria">Cafeteria</h3>
+            <ul role="list" class="md:grid md:grid-cols-2 md:gap-x-10">
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.espresso.name">Espresso / Double Espresso</div></div>
+                <div class="menu-item__price">€2 / €2.2</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.macchiato.name">Macchiato</div></div>
+                <div class="menu-item__price">€2.3</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.americano.name">Americano</div></div>
+                <div class="menu-item__price">€2.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.cappuccino.name">Cappuccino / Latte</div></div>
+                <div class="menu-item__price">€2.8</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.flat_white.name">Flat White</div></div>
+                <div class="menu-item__price">€3.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.latte_xl.name">Latte XL / Ice Latte</div></div>
+                <div class="menu-item__price">€4</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.matcha_chai.name">Matcha / Chai / Turmeric Latte</div></div>
+                <div class="menu-item__price">€3.8</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left"><div class="menu-item__name" data-i18n="menu.dirty_chai.name">Dirty Chai Latte</div></div>
+                <div class="menu-item__price">€4.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.teas.name">Teas &amp; Infusions</div>
+                  <p class="menu-item__desc" data-i18n="menu.teas.desc">English Breakfast · Alpine Berry · Tropical Green · Chamomile · Peppermint · African Rooibos</p>
+                </div>
+                <div class="menu-item__price">€3</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.oj_lemonade.name">Orange Juice / Lemonade</div>
+                  <p class="menu-item__desc" data-i18n="menu.oj_lemonade.desc">Lemonade jug €8.5</p>
+                </div>
+                <div class="menu-item__price">€4.5</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.detox.name">Green Detox / Red Detox</div>
+                  <p class="menu-item__desc" data-i18n="menu.detox.desc">Cold press juices</p>
+                </div>
+                <div class="menu-item__price">€6</div>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item__left">
+                  <div class="menu-item__name" data-i18n="menu.smoothies.name">Smoothies &amp; Milkshakes</div>
+                  <p class="menu-item__desc" data-i18n="menu.smoothies.desc">2 fruits €5.5 · 3 fruits €7</p>
+                </div>
+                <div class="menu-item__price">from €5.5</div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Full menu CTA -->
+        <div class="menu-cta-row text-center fade-up">
+          <a href="https://qrco.de/beBJb1"
+             class="btn btn--ghost-dark"
+             target="_blank"
+             rel="noopener"
+             data-i18n="menu.see_full">
+            Ver menú completo
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── GALLERY ────────────────────────────────────────── -->
+    <section class="section" id="gallery" aria-labelledby="gallery-heading">
+      <div class="container">
+
+        <div class="text-center mb-10 fade-up">
+          <span class="section-overline" data-i18n="gallery.overline">Galería</span>
+          <h2 class="section-title mt-2" id="gallery-heading" data-i18n="gallery.title">Cada plato, una historia</h2>
+        </div>
+
+        <div class="gallery-grid fade-up" role="list" aria-label="Galería de fotos de Brunch.ar" data-i18n-aria="gallery.grid">
+          <div class="gallery-item" role="listitem">
+            <img src="images/food2.jpg" alt="Plato de brunch con huevos y tostadas" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="images/food3.jpg" alt="Pancakes con frutos rojos y sirope" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="images/food4.jpg" alt="Avocado toast con semillas y tomate cherry" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="images/food5.jpg" alt="Eggs Benedict con salsa holandesa" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="images/food6.jpg" alt="Empanadas argentinas recién horneadas" loading="lazy" decoding="async" />
+          </div>
+          <div class="gallery-item" role="listitem">
+            <img src="images/coffee1.jpg" alt="Flat white con latte art" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+        <div class="text-center mt-10 fade-up">
+          <a href="https://www.instagram.com/brunch.ar_bcn"
+             class="btn btn--ghost-dark"
+             target="_blank"
+             rel="noopener"
+             aria-label="Seguir a Brunch.ar en Instagram"
+             data-i18n-aria="gallery.instagram_btn">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span data-i18n="gallery.cta">Síguenos en Instagram</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── REVIEWS ────────────────────────────────────────── -->
+    <section class="section bg-cream-dk" id="reviews" aria-labelledby="reviews-heading">
+      <div class="container">
+
+        <div class="text-center mb-12 fade-up">
+          <span class="section-overline" data-i18n="reviews.overline">Reseñas</span>
+          <h2 class="section-title mt-2" id="reviews-heading" data-i18n="reviews.title">Lo que dicen nuestros clientes</h2>
+          <p class="text-muted mt-3 flex items-center justify-center gap-2">
+            <span class="review-stars" aria-label="4.8 de 5 estrellas" data-i18n-aria="reviews.stars_avg">★★★★★</span>
+            <span class="font-semibold text-sm" data-i18n="reviews.average">4.8 de media en Google</span>
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <article class="review-card fade-up">
+            <div class="review-stars" aria-label="5 estrellas" data-i18n-aria="reviews.stars_5">★★★★★</div>
+            <p class="review-text" data-i18n="reviews.r1_text">"El mejor brunch que he tomado en Barcelona. Las empanadas son increíbles y el ambiente es súper acogedor. Volveré sin duda."</p>
+            <div class="review-author" data-i18n="reviews.r1_author">Huw L.</div>
+            <div class="review-source" data-i18n="reviews.source">Google · 5 ★</div>
+          </article>
+
+          <article class="review-card fade-up delay-1">
+            <div class="review-stars" aria-label="5 estrellas" data-i18n-aria="reviews.stars_5">★★★★★</div>
+            <p class="review-text" data-i18n="reviews.r2_text">"Lugar encantador con mucho carácter. Los huevos benedict estaban perfectos y el café de especialidad, delicioso. Pet friendly, una ventaja enorme."</p>
+            <div class="review-author" data-i18n="reviews.r2_author">Andreea M.S.</div>
+            <div class="review-source" data-i18n="reviews.source">Google · 5 ★</div>
+          </article>
+
+          <article class="review-card fade-up delay-2">
+            <div class="review-stars" aria-label="5 estrellas" data-i18n-aria="reviews.stars_5">★★★★★</div>
+            <p class="review-text" data-i18n="reviews.r3_text">"Auténtico sabor argentino en el Eixample. Las medialunas y el cheesecake son un must. Atención muy cálida y servicio rápido."</p>
+            <div class="review-author" data-i18n="reviews.r3_author">Rodrigo V.</div>
+            <div class="review-source" data-i18n="reviews.source">Google · 5 ★</div>
+          </article>
+
+          <article class="review-card fade-up delay-3">
+            <div class="review-stars" aria-label="5 estrellas" data-i18n-aria="reviews.stars_5">★★★★★</div>
+            <p class="review-text" data-i18n="reviews.r4_text">"Hidden gem in Barcelona! The avocado toast and pancakes were outstanding. Loved the cosy atmosphere and that they welcome dogs."</p>
+            <div class="review-author" data-i18n="reviews.r4_author">Joanna K.</div>
+            <div class="review-source" data-i18n="reviews.source">Google · 5 ★</div>
+          </article>
+
+        </div>
+
+        <div class="text-center mt-10 fade-up">
+          <a href="https://maps.app.goo.gl/peB7D6yvsJGTujVR6"
+             class="btn btn--ghost-dark"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-i18n="reviews.cta">
+            Déjanos una reseña en Google
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── FIND US ─────────────────────────────────────────── -->
+    <section class="section" id="findus" aria-labelledby="findus-heading">
+      <div class="container">
+
+        <div class="text-center mb-12 fade-up">
+          <span class="section-overline" data-i18n="findus.overline">Encuéntranos</span>
+          <h2 class="section-title mt-2" id="findus-heading" data-i18n="findus.title">Ven a vernos</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
+
+          <!-- Left: details + WhatsApp card -->
+          <div class="fade-up">
+            <!-- Address -->
+            <div class="findus-detail">
+              <div class="findus-detail__icon">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="findus-detail__label" data-i18n="findus.address_label">Dirección</div>
+                <address class="not-italic text-[15px] text-brown-md leading-relaxed" data-i18n="findus.address">
+                  C/ de Padilla, 170, Eixample, 08013 Barcelona
+                </address>
+              </div>
+            </div>
+            <!-- Hours -->
+            <div class="findus-detail">
+              <div class="findus-detail__icon">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="findus-detail__label" data-i18n="findus.hours_label">Horario</div>
+                <p class="text-[15px] text-brown-md" data-i18n-html="findus.hours_detail">Mié–Dom · 9:00–16:00<br>Lun–Mar · Cerrado</p>
+              </div>
+            </div>
+            <!-- Phone -->
+            <div class="findus-detail">
+              <div class="findus-detail__icon">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="findus-detail__label" data-i18n="findus.phone_label">Teléfono</div>
+                <a href="tel:+34931024528" class="text-[15px] text-brown-md hover:text-terra transition-colors">+34 931 02 45 28</a>
+              </div>
+            </div>
+
+            <!-- WhatsApp reserve card -->
+            <div class="wa-card mt-8" id="whatsapp-find-us" data-phone="+34931024528">
+              <h3 class="wa-card__title" data-i18n="findus.wa_title">¿Tienes mesa para mí?</h3>
+              <p class="wa-card__sub" data-i18n="findus.wa_sub">Escríbenos por WhatsApp y te reservamos mesa ahora mismo.</p>
+              <a href="https://wa.me/34931024528"
+                 class="btn btn--wa-white w-full justify-center"
+                 target="_blank"
+                 rel="noopener"
+                 aria-label="Reservar por WhatsApp"
+                 data-i18n-aria="findus.wa_cta">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.557 4.116 1.532 5.845L0 24l6.335-1.607A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.851 0-3.597-.5-5.1-1.374l-.366-.217-3.762.955.988-3.665-.239-.381A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                <span data-i18n="findus.wa_cta">Reservar por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: map -->
+          <div class="fade-up delay-1">
+            <div class="map-container" aria-label="Mapa de ubicación de Brunch.ar en el Eixample de Barcelona" data-i18n-aria="findus.map_label">
+              <!-- Replace with real Google Maps embed: maps.google.com → Share → Embed a map -->
+              <!-- Remove width/height from the <iframe> — CSS handles sizing -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.0!2d2.1826224!3d41.4016845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a3e3307291dd%3A0xff3803893f22b477!2sBrunch.ar!5e0!3m2!1ses!2ses!4v1620000000000"
+                title="Mapa de ubicación de Brunch.ar"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div>
+          <img src="images/logo2.png" alt="Brunch.ar Barcelona" class="footer__logo" loading="lazy" />
+          <p class="text-sm leading-relaxed mb-6 max-w-xs" data-i18n="footer.tagline">
+            Brunch argentino en el corazón del Eixample, Barcelona.
+          </p>
+          <!-- Social links -->
+          <div class="footer__social flex gap-3">
+            <a href="https://www.instagram.com/brunch.ar_bcn"
+               target="_blank"
+               rel="noopener"
+               aria-label="Brunch.ar en Instagram">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@brunch.ar_bcn"
+               target="_blank"
+               rel="noopener"
+               aria-label="Brunch.ar en TikTok">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.99a8.19 8.19 0 0 0 4.79 1.52V7.06a4.85 4.85 0 0 1-1.02-.37z"/></svg>
+            </a>
+            <a href="https://wa.me/34931024528"
+               target="_blank"
+               rel="noopener"
+               data-phone="+34931024528"
+               aria-label="Brunch.ar en WhatsApp">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.557 4.116 1.532 5.845L0 24l6.335-1.607A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.851 0-3.597-.5-5.1-1.374l-.366-.217-3.762.955.988-3.665-.239-.381A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nav links -->
+        <nav aria-label="Pie de página" data-i18n-aria="nav.footer_nav">
+          <p class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4" data-i18n="footer.nav_heading">Menú</p>
+          <ul class="flex flex-col gap-3" role="list">
+            <li><a href="#about"   class="text-sm hover:text-white transition-colors" data-i18n="nav.about">Nosotros</a></li>
+            <li><a href="#menu"    class="text-sm hover:text-white transition-colors" data-i18n="nav.menu">Menú</a></li>
+            <li><a href="#gallery" class="text-sm hover:text-white transition-colors" data-i18n="nav.gallery">Galería</a></li>
+            <li><a href="#findus"  class="text-sm hover:text-white transition-colors" data-i18n="nav.findus">Encuéntranos</a></li>
+          </ul>
+        </nav>
+
+        <!-- Language + contact -->
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4" data-i18n="footer.lang_heading">Idioma</p>
+          <div class="flex gap-2 mb-8" role="group" aria-label="Selector de idioma" data-i18n-aria="nav.lang_group">
+            <button class="lang-btn" data-lang="es" aria-pressed="true">ES</button>
+            <button class="lang-btn" data-lang="ca" aria-pressed="false">CA</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a href="tel:+34931024528" class="text-sm block mb-2 hover:text-white transition-colors">+34 931 02 45 28</a>
+          <a href="privacy.html" class="text-sm hover:text-white transition-colors underline" data-i18n="footer.privacy">Política de privacidad</a>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="footer__divider" />
+    <div class="footer__bottom">
+      <p class="footer__copy" data-i18n="footer.copy">© 2025 Brunch.ar Barcelona. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
+       FLOATING ELEMENTS
+  ══════════════════════════════════════════════════════ -->
+
+  <!-- Floating WhatsApp button -->
+  <a id="whatsapp-btn"
+     href="https://wa.me/34931024528"
+     data-phone="+34931024528"
+     target="_blank"
+     rel="noopener"
+     aria-label="Contactar por WhatsApp"
+     data-i18n-aria="whatsapp.float_btn">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.557 4.116 1.532 5.845L0 24l6.335-1.607A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.851 0-3.597-.5-5.1-1.374l-.366-.217-3.762.955.988-3.665-.239-.381A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Volver al inicio" data-i18n-aria="nav.back_top">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- ══════════════════════════════════════════════════════
+       COOKIE CONSENT BANNER
+  ══════════════════════════════════════════════════════ -->
+  <div id="cookie-banner" role="region" aria-label="Aviso de cookies" data-i18n-aria="cookie.banner" aria-live="polite">
+    <p>
+      <span data-i18n="cookie.text">Usamos cookies para mejorar tu experiencia y analizar el tráfico. Puedes aceptar todas o solo las esenciales.</span>
+      &nbsp;<a href="privacy.html" data-i18n="cookie.privacy">Política de privacidad</a>
+    </p>
+    <div class="cookie-btns">
+      <button id="cookie-accept"    class="cookie-btn cookie-btn--accept"    data-i18n="cookie.accept">Aceptar todas</button>
+      <button id="cookie-necessary" class="cookie-btn cookie-btn--necessary" data-i18n="cookie.necessary">Solo esenciales</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       SCHEMA.ORG JSON-LD
+  ══════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Brunch.ar Barcelona",
+    "description": "Brunch argentino en el Eixample de Barcelona. Desayunos y brunchs con alma argentina, café de especialidad y ambiente pet friendly.",
+    "url": "https://brunchar.vercel.app/",
+    "telephone": "+34931024528",
+
+    "currenciesAccepted": "EUR",
+    "priceRange": "€€",
+    "servesCuisine": ["Argentine", "Brunch", "Breakfast"],
+    "hasMenu": "https://qrco.de/beBJb1",
+    "acceptsReservations": true,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C/ de Padilla, 170",
+      "addressLocality": "Barcelona",
+      "addressRegion": "Cataluña",
+      "postalCode": "08013",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.4015,
+      "longitude": 2.1740
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/brunch.ar_bcn",
+      "https://www.tiktok.com/@brunch.ar_bcn"
+    ],
+    "image": "https://brunchar.vercel.app/images/og-image.jpg",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.8,
+      "reviewCount": 4,
+      "bestRating": 5
+    }
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
