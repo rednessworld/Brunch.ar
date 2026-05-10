@@ -423,12 +423,39 @@ a { color: inherit; text-decoration: none; }
   padding: 3.5rem 0;
 }
 
-/* ── Section flat colors ────────────────────────────────── */
+/* ── Section colors + paper texture via ::before ────────── */
+#about, #menu, #gallery, #reviews, #findus { position: relative; }
 #about   { background-color: #EFE0C8; }
 #menu    { background-color: #FAF5EE; }
 #gallery { background-color: #EAD4B2; }
 #reviews { background-color: #FAF5EE; }
 #findus  { background-color: #EFE0C8; }
+
+#about::before,
+#menu::before,
+#gallery::before,
+#reviews::before,
+#findus::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#about > *,
+#menu > *,
+#gallery > *,
+#reviews > *,
+#findus > * {
+  position: relative;
+  z-index: 1;
+}
 
 .container {
   position: relative;
