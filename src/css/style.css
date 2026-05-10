@@ -438,11 +438,6 @@ a { color: inherit; text-decoration: none; }
 #about   { background-color: #EFE0C8; }
 #menu {
   background-color: #EFE0C8;
-  background-image: url('../images/Background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: multiply;
 }
 #gallery { background-color: #EAD4B2; }
 #reviews { background-color: #FAF5EE; }
