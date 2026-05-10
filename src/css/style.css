@@ -423,21 +423,9 @@ a { color: inherit; text-decoration: none; }
   padding: 3.5rem 0;
 }
 
-/* ── Paper texture — fixed cover blend per section ─────── */
-#about,
-#menu,
-#gallery,
-#reviews,
-#findus {
-  background-image: url('../images/Background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-  background-blend-mode: multiply;
-}
+/* ── Section flat colors ────────────────────────────────── */
 #about   { background-color: #EFE0C8; }
-#menu    { background-color: #EFE0C8; }
+#menu    { background-color: #FAF5EE; }
 #gallery { background-color: #EAD4B2; }
 #reviews { background-color: #FAF5EE; }
 #findus  { background-color: #EFE0C8; }
@@ -869,12 +857,6 @@ a { color: inherit; text-decoration: none; }
 .footer {
   position: relative;
   background-color: var(--brown);
-  background-image: url('../images/Background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-  background-blend-mode: multiply;
   color: rgba(255,255,255,0.8);
 }
 
