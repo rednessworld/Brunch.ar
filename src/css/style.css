@@ -82,15 +82,19 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--cream);
-  background-image: url('../images/Background2.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+.bg-texture {
+  position: fixed;
+  inset: 0;
+  background-image: url('../images/Background2.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
 }
 img, video { display: block; max-width: 100%; }
 button { cursor: pointer; }
