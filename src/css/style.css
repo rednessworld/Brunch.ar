@@ -266,6 +266,15 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   padding: var(--nav-height) var(--sp-4) 0;
 }
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+  .hero__bg {
+    object-fit: cover;
+    object-position: 60% center;
+  }
+}
 .hero__logo {
   width: clamp(220px, 75vw, 600px);
   height: auto;
