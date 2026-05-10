@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Esta mesa no existe — Brunch.ar Barcelona</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      text-align: center;
+      padding: 24px;
+      background: var(--cream);
+    }
+    .e404__logo { width: 100px; margin-bottom: 32px; }
+    .e404__code {
+      font-family: var(--font-heading);
+      font-size: clamp(72px, 20vw, 140px);
+      font-weight: 700;
+      color: var(--terracotta);
+      line-height: 1;
+      opacity: 0.18;
+      margin-bottom: -16px;
+    }
+    .e404__title {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 6vw, 40px);
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 16px;
+    }
+    .e404__sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 400px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .e404__actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  </style>
+</head>
+<body>
+  <img src="images/Logo.png" alt="Brunch.ar Barcelona" class="e404__logo" />
+  <p class="e404__code">404</p>
+  <h1 class="e404__title">Esta mesa no existe</h1>
+  <p class="e404__sub">La página que buscas no está aquí, pero nuestras empanadas sí. Vuelve al inicio y encuentra todo lo que necesitas.</p>
+  <div class="e404__actions">
+    <a href="index.html" class="btn btn--primary">Volver al inicio</a>
+    <a href="https://wa.me/34931024528?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20una%20reserva%20en%20Brunch.ar%20%F0%9F%A5%90"
+       class="btn btn--ghost-dark" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div>
+</body>
+</html>

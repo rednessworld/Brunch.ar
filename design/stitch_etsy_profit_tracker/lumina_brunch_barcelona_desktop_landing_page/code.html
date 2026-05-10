@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Brunch Barcelona</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d0e8db",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#303031",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#0a1f18",
+                        "outline": "#7d766d",
+                        "on-surface-variant": "#4c463e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdad3",
+                        "on-secondary-fixed-variant": "#802918",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e9e8e7",
+                        "primary-container": "#f5e6d3",
+                        "on-primary-container": "#716657",
+                        "tertiary": "#4d6359",
+                        "tertiary-container": "#d6eee1",
+                        "surface-bright": "#fbf9f9",
+                        "primary": "#675d4e",
+                        "inverse-primary": "#d2c4b2",
+                        "secondary-container": "#fd876f",
+                        "surface-dim": "#dbdad9",
+                        "on-tertiary-fixed-variant": "#364b42",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#4f4538",
+                        "primary-fixed-dim": "#d2c4b2",
+                        "on-secondary-container": "#732010",
+                        "outline-variant": "#cec5bb",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "on-secondary-fixed": "#3e0500",
+                        "tertiary-fixed-dim": "#b4ccc0",
+                        "surface-variant": "#e3e2e2",
+                        "surface-container-low": "#f5f3f3",
+                        "primary-fixed": "#efe0cd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fbf9f9",
+                        "on-surface": "#1b1c1c",
+                        "secondary-fixed-dim": "#ffb4a5",
+                        "surface-container-highest": "#e3e2e2",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#576d62",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary-fixed": "#221a0f",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#9f402d",
+                        "surface-tint": "#675d4e",
+                        "background": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Montserrat"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "button": ["Montserrat"],
+                        "body-md": ["Montserrat"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F5E6D3; /* Warm Biscuit Fallback */
+            color: #2D4239; /* Deep Forest Green Fallback */
+        }
+    </style>
+</head>
+<body class="bg-primary-container text-on-surface antialiased font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md bg-surface-container-low dark:bg-inverse-surface/10 shadow-sm">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-display-lg-mobile text-headline-sm text-primary dark:text-inverse-primary tracking-tight" href="#">Lumina Brunch Barcelona</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-button text-button uppercase hover:text-secondary transition-colors duration-300" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-button text-button uppercase hover:text-secondary transition-colors duration-300" href="#events">Events</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-button text-button uppercase hover:text-secondary transition-colors duration-300" href="#menu">Menu</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-button text-button uppercase hover:text-secondary transition-colors duration-300" href="#gallery">Gallery</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-button text-button uppercase hover:text-secondary transition-colors duration-300" href="#find-us">Find Us</a>
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded font-button text-button uppercase hover:bg-secondary/90 transition-colors duration-300 active:scale-95 transition-transform">Book a Table</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[921px] flex items-center justify-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Hero Image" class="w-full h-full object-cover object-center filter brightness-90" data-alt="A breathtaking, sun-drenched overhead shot of a luxurious Mediterranean brunch spread on a rustic wooden table. The composition features a beautifully plated Shakshuka in a cast-iron skillet, fresh artisanal sourdough bread, and perfectly poached eggs with rich hollandaise sauce. Soft, warm natural light spills across the scene, highlighting the vibrant reds of tomatoes and fresh green herbs. The overall aesthetic is rustic yet highly refined, evoking the sophisticated yet inviting atmosphere of a top-tier Barcelona eatery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFh-Ytau3QFsAJ245erCFMEyhV1YZkrDwbkJ_Hsok1Nbj-HIcy6jLNuHjyVuaQukgZqKyYN2cfLVd-zHpG7Hix3ssY8XyPEe4OwJXUxTCnR83TaeLZ8S0Jojo7Y2pmoyD8m0OzEXZcvent_xhFkeScxbZBrg5Rah6CQm2hKcxCMPG-IAnkkAB8K7FUkgdoJLZjJqlTUog8Cvy60Yq26qM8JXl30PVMAdinnknOc-9qXNKqT9XQDb9VBzmwNh9ASud4O2j7nijWfCk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/80 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] mb-4 uppercase bg-surface/80 px-4 py-1 rounded-full backdrop-blur-sm">Est. in El Born</span>
+<h1 class="font-display-lg text-display-lg text-surface mb-6 drop-shadow-lg text-center leading-tight">Sun-Drenched Flavors.<br/>Industrial Soul.</h1>
+<p class="font-body-lg text-body-lg text-surface mb-10 max-w-2xl text-center drop-shadow-md">Experience culinary artistry layered over raw architectural heritage. A sensory journey waiting in the heart of Barcelona.</p>
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded font-button text-button uppercase hover:bg-secondary/90 transition-all duration-300 shadow-[0_8px_30px_rgb(45,66,57,0.15)] hover:-translate-y-1">Reserve Your Experience</button>
+</div>
+<!-- Botanical flourish -->
+<div class="absolute bottom-10 right-10 opacity-10 pointer-events-none w-64 h-64 text-tertiary">
+<svg fill="currentColor" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 0C50 0 70 20 70 50C70 80 50 100 50 100C50 100 30 80 30 50C30 20 50 0 50 0Z"></path>
+<path d="M50 20C50 20 65 35 65 60C65 85 50 100 50 100" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+</header>
+<!-- About Section -->
+<section class="py-section-gap relative" id="about">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-5 md:col-start-2 relative">
+<div class="aspect-[4/5] relative rounded overflow-hidden">
+<img alt="Interior" class="w-full h-full object-cover" data-alt="A moody, atmospheric shot of an upscale restaurant interior blending Mediterranean warmth with industrial rawness. The scene features exposed brick walls, vintage kiln-fired terracotta tiles, and sleek modern furniture in deep forest green and soft terracotta. Warm, diffused sunlight streams through large factory-style windows, illuminating a rustic wooden table set for brunch. The aesthetic is tactile minimalism, feeling sophisticated, inviting, and deeply textured." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxqy7QLOrXhhq4qRbqKfosOYpfwvW_l90DPtaQr83PYwWamY2J4JAkgrIHONRHTtfVKUKFYe1rwd5Cno4SRsnSOR5Jf1f03yT_-X8JGO1k5sInuG49kKmYrXUjWsh-uwEt2p0JIoIsPUH6e9KgDdwQte1n9zs_FNqMQP5ZUl0Pmp_pTPMyTrrWispYpjoWImoKxphLENKXg0UTN0qsNJ_zmUIUH8nq63EJ9o5Pl_NmAeI-YOPYMkHYxkZqW3oqX-tVIwv74HufmYA"/>
+</div>
+<!-- Decorative border offset -->
+<div class="absolute -top-4 -left-4 w-full h-full border border-tertiary/20 rounded z-[-1]"></div>
+</div>
+<div class="md:col-span-5 flex flex-col justify-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Rooted in El Born's History</h2>
+<div class="w-12 h-[1px] bg-secondary mb-8"></div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">
+                    Housed in a meticulously restored industrial loft, Lumina Brunch offers an aesthetic that leans into tactile minimalism. We avoid the sterile coldness of traditional modernism by layering organic textures—botanical silhouettes and masonry-inspired dividers—over a clean, structured foundation.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                    Our menu is a sensory-heavy digital experience that feels as appetizing as the space itself, evoking the smell of fresh herbs and the warmth of kiln-fired terracotta. High visual density is achieved through rich culinary craftsmanship and detailed plating.
+                </p>
+<a class="font-button text-button uppercase text-tertiary border border-tertiary/20 px-6 py-3 rounded w-fit hover:bg-tertiary/5 transition-colors" href="#">Discover Our Story</a>
+</div>
+</div>
+</section>
+<!-- Menu Section (Bento Grid Style) -->
+<section class="py-section-gap bg-surface relative overflow-hidden" id="menu">
+<!-- Background flourish -->
+<div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary-container to-transparent opacity-50"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-secondary tracking-[0.2em] mb-2 block uppercase">Culinary Artistry</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">The Menu</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Eggs & Classics Card (Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded shadow-[0_8px_30px_rgb(45,66,57,0.05)] border border-tertiary/10 overflow-hidden flex flex-col">
+<div class="h-64 relative overflow-hidden">
+<img alt="Eggs Benedict" class="w-full h-full object-cover" data-alt="A close-up, high-end culinary photograph of perfectly poached eggs benedict served on toasted artisanal sourdough. Rich, golden hollandaise sauce cascades over the eggs, garnished with delicate microgreens and a sprinkle of smoked paprika. The dish sits on a textured, matte ceramic plate in an earthy tone. The lighting is soft and directional, creating a mouth-watering, magazine-quality presentation typical of a luxury Mediterranean brunch spot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEUWtD6PWj7v_JcbGxlP3NrwDCfXfrrXKFRPaFLCfViU6tjPfOIeDVMebAzCeqDZlFG-ndO2rMG0mlKy-3nsdcRqn5qWaksPKaSyZtAFjcfvyEiXDKL3tReK7y9MkNVNWOwTryuHcjkGIKL1CZusRqQyHOmLZuH6uwv2e1F91XigYe8bbqg8Id5OSIkxmPTgGPp4kptg4baukEh3IUvxxh03uP1WAeCN82_RvzojIiW5uQnqTDM30HPeqUmqFZ_uxlKJKehRbCVm8"/>
+</div>
+<div class="p-8 flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6 border-b border-tertiary/10 pb-4">Eggs &amp; Classics</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-baseline">
+<div class="flex-grow">
+<h4 class="font-headline-sm text-[20px] text-tertiary">Truffle Mushroom Benedict</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mt-1">Poached eggs, wild mushroom duxelles, truffle hollandaise, artisan sourdough</p>
+<div class="mt-2 flex gap-2">
+<span class="bg-tertiary text-on-tertiary text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm">Vegetarian</span>
+</div>
+</div>
+<div class="font-body-md text-on-surface ml-4 border-b border-dotted border-tertiary/30 min-w-[40px] text-right">€18</div>
+</div>
+<div class="flex justify-between items-baseline">
+<div class="flex-grow">
+<h4 class="font-headline-sm text-[20px] text-tertiary">Mediterranean Shakshuka</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant mt-1">Spiced tomato &amp; pepper ragout, baked eggs, feta, za'atar flatbread</p>
+<div class="mt-2 flex gap-2">
+<span class="bg-tertiary text-on-tertiary text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm">Gluten-Free Option</span>
+</div>
+</div>
+<div class="font-body-md text-on-surface ml-4 border-b border-dotted border-tertiary/30 min-w-[40px] text-right">€16</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sweet Treats & Coffee (Stacked) -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Sweet Treats -->
+<div class="bg-surface-container-lowest rounded shadow-[0_8px_30px_rgb(45,66,57,0.05)] border border-tertiary/10 p-6 flex-grow">
+<h3 class="font-headline-sm text-[20px] text-on-surface mb-4 border-b border-tertiary/10 pb-2">Sweet Treats</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between items-baseline">
+<h4 class="font-headline-sm text-[16px] text-tertiary">Ricotta Hotcakes</h4>
+<span class="font-body-md text-[14px] text-on-surface ml-2">€15</span>
+</div>
+<p class="font-body-md text-[12px] text-on-surface-variant mt-1">Honeycomb butter, seasonal berries</p>
+</div>
+<div>
+<div class="flex justify-between items-baseline">
+<h4 class="font-headline-sm text-[16px] text-tertiary">French Toast</h4>
+<span class="font-body-md text-[14px] text-on-surface ml-2">€14</span>
+</div>
+<p class="font-body-md text-[12px] text-on-surface-variant mt-1">Brioche, mascarpone, maple syrup</p>
+</div>
+</div>
+</div>
+<!-- Specialty Coffee -->
+<div class="bg-primary-container rounded shadow-[0_8px_30px_rgb(45,66,57,0.05)] border border-tertiary/10 p-6 relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[120px] text-tertiary/5 select-none pointer-events-none" data-icon="local_cafe">local_cafe</span>
+<h3 class="font-headline-sm text-[20px] text-on-surface mb-4 border-b border-tertiary/10 pb-2 relative z-10">Specialty Coffee</h3>
+<div class="space-y-3 relative z-10">
+<div class="flex justify-between items-baseline text-[14px]">
+<span class="font-body-md text-on-surface">Flat White</span>
+<span class="font-body-md text-on-surface">€3.5</span>
+</div>
+<div class="flex justify-between items-baseline text-[14px]">
+<span class="font-body-md text-on-surface">Cortado</span>
+<span class="font-body-md text-on-surface">€2.8</span>
+</div>
+<div class="flex justify-between items-baseline text-[14px]">
+<span class="font-body-md text-on-surface">Cold Brew</span>
+<span class="font-body-md text-on-surface">€4.5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="border-2 border-tertiary text-tertiary px-8 py-3 rounded font-button text-button uppercase hover:bg-tertiary hover:text-on-tertiary transition-colors duration-300">View Full Menu</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-inverse-surface w-full mt-section-gap flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-gutter py-16 max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<span class="font-headline-md text-headline-md text-on-surface dark:text-inverse-on-surface">Lumina Brunch Barcelona</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm">
+                    Sun-drenched Mediterranean flavors layered over the raw industrial soul of El Born.
+                </p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary underline decoration-secondary transition-all duration-200 w-fit" href="#">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary underline decoration-secondary transition-all duration-200 w-fit" href="#">Reservations</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary underline decoration-secondary transition-all duration-200 w-fit" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-button text-button uppercase text-primary dark:text-inverse-primary mb-2">Follow Us</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary underline decoration-secondary transition-all duration-200 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="photo_camera">photo_camera</span>
+                    Instagram
+                </a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary underline decoration-secondary transition-all duration-200 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="thumb_up">thumb_up</span>
+                    Facebook
+                </a>
+</div>
+</div>
+<div class="border-t border-outline/20 py-6 text-center">
+<p class="font-body-md text-[12px] text-on-surface-variant dark:text-surface-variant">© 2024 Lumina Brunch Barcelona. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
