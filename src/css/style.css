@@ -271,8 +271,7 @@ a { color: inherit; text-decoration: none; }
     min-height: 100svh;
   }
   .hero__bg {
-    object-fit: cover;
-    object-position: 60% center;
+    object-position: 70% center;
   }
 }
 .hero__logo {
@@ -289,7 +288,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
 }
 .hero__overlay {
   position: absolute;
@@ -434,7 +433,7 @@ a { color: inherit; text-decoration: none; }
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-blend-mode: multiply;
 }
 #about   { background-color: #EFE0C8; }
@@ -874,7 +873,7 @@ a { color: inherit; text-decoration: none; }
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-blend-mode: multiply;
   color: rgba(255,255,255,0.8);
 }
